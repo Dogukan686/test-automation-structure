@@ -1,0 +1,113 @@
+{
+  "info": {
+    "name": "Mock API Collection",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "description": "Token, viewInvoice, sendInvoice mock API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "user",
+            "value": "demoUser"
+          },
+          {
+            "key": "pass",
+            "value": "demoPass"
+          }
+        ],
+        "url": {
+          "raw": "https://mockserver.com/token",
+          "host": [
+            "mockserver",
+            "com"
+          ],
+          "path": [
+            "token"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"token\": \"abc123xyz\"}",
+          "header": [],
+          "name": "Success"
+        }
+      ]
+    },
+    {
+      "name": "View Invoice",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://mockserver.com/viewInvoice?barcode=123456",
+          "host": [
+            "mockserver",
+            "com"
+          ],
+          "path": [
+            "viewInvoice"
+          ],
+          "query": [
+            {
+              "key": "barcode",
+              "value": "123456"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"InvoiceLink\": \"http://abc.com/invoice.pdf\", \"Result\": {\"success\": true}}",
+          "header": [],
+          "name": "Success"
+        }
+      ]
+    },
+    {
+      "name": "Send Invoice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "token",
+            "value": "abc123xyz"
+          }
+        ],
+        "url": {
+          "raw": "https://mockserver.com/sendInvoice",
+          "host": [
+            "mockserver",
+            "com"
+          ],
+          "path": [
+            "sendInvoice"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"Barcode\": \"123456\"}"
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"status\": \"sent\", \"Result\": {\"success\": true}}",
+          "header": [],
+          "name": "Success"
+        }
+      ]
+    }
+  ]
+}

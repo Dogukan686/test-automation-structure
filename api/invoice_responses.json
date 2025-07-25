@@ -1,0 +1,14 @@
+{
+  "viewInvoiceResponse": {
+    "InvoiceLink": "http://abc.com/invoice.pdf",
+    "Result": {
+      "success": true
+    }
+  },
+  "sendInvoiceResponse": {
+    "status": "sent",
+    "Result": {
+      "success": true
+    }
+  }
+}

@@ -83,3 +83,21 @@ docker-compose up --build
 ```
 
 Bu komut, otomasyon testlerini konteyner içinde başlatır.
+
+
+---
+
+## Paralel Test Koşumu
+
+### Behave-Parallel ile
+
+Testleri aynı anda birden fazla çekirdekte çalıştırmak için:
+
+```bash
+behave-parallel -n 4 -f pretty
+```
+
+- `-n 4` → 4 paralel thread kullanır
+- Test dosyalarını otomatik olarak böler ve paralel yürütür
+
+> Not: Her `.feature` dosyası ayrı thread'de yürütülür, step dosyaları ortak kullanılır.
