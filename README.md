@@ -101,3 +101,20 @@ behave-parallel -n 4 -f pretty
 - Test dosyalarını otomatik olarak böler ve paralel yürütür
 
 > Not: Her `.feature` dosyası ayrı thread'de yürütülür, step dosyaları ortak kullanılır.
+
+
+---
+
+## Paralel Test Koşumu (behave_parallel klasörü ile yerel çözüm)
+
+`pip install behave-parallel` çalışmadığında, bu proje içinde yer alan `behave_parallel/run_parallel.py` dosyasını kullanarak paralel test çalıştırabilirsiniz.
+
+### Kullanım:
+```bash
+python behave_parallel/run_parallel.py
+```
+
+- Bu script, `features/` klasöründeki tüm `.feature` dosyalarını aynı anda çalıştırır
+- Varsayılan olarak 4 thread ile çalışır (isteğe göre arttırılabilir)
+
+---
