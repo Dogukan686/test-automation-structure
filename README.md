@@ -1,3 +1,23 @@
+# 🧪 Test Otomasyon Case Çalışması
+
+## 🎯 Proje Özeti
+
+Bu proje, yazılım test mühendisi adayları için hazırlanmış uçtan uca bir otomasyon test case çalışmasıdır.  
+Projede aşağıdaki yetenekler ve teknolojiler uygulanmıştır:
+
+- ✅ Selenium ile UI test otomasyonu
+- ✅ Behave (BDD) ile insan okunabilir test senaryoları
+- ✅ Postman ile API mock testi
+- ✅ API response’larını `.json` dosyasına yazma
+- ✅ Dinamik tarayıcı seçimi (Chrome / Firefox)
+- ✅ Test başarısız olursa otomatik ekran görüntüsü alma
+- ✅ HTML ve Allure ile test raporlama
+- ✅ Docker & Docker Compose desteği
+- ✅ Python scripti ile paralel test koşumu (behave_parallel klasörü)
+
+Kurulum, çalıştırma ve detaylar aşağıda adım adım açıklanmıştır. 👇
+
+
 # E2E Test Automation Case Study
 
 Bu proje, Yazılım Test Mühendisi teknik değerlendirme görevinde belirtilen 8 adımı içeren uçtan uca test otomasyonu çalışmasıdır.
