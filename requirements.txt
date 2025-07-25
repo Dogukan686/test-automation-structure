@@ -1,0 +1,6 @@
+selenium
+behave
+requests
+pytest
+behave-parallel
+allure-behave

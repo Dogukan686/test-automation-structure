@@ -1,0 +1,9 @@
+
+version: '3.9'
+
+services:
+  behave-tests:
+    build: .
+    volumes:
+      - .:/app
+    container_name: behave_container
