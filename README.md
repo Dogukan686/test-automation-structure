@@ -102,6 +102,7 @@ python behave_parallel/run_parallel.py
 ├── docker-compose.yml
 ├── requirements.txt
 └── run_all_tests.bat
+├── run_docker_tests.bat
 ```
 
 ---
