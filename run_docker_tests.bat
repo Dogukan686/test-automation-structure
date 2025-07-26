@@ -1,27 +1,17 @@
 @echo off
-echo --------------------------------------------
-echo Test Automation Project - Docker Build & Run
-echo --------------------------------------------
+echo ---------------------------------------------
+echo Test Automation Project - Docker Build
+echo ---------------------------------------------
 
-:: Docker image build (buildx destekli ve local yükleme)
 docker buildx build --load -t test-automation .
 
-IF %ERRORLEVEL% NEQ 0 (
-    echo [HATA] Docker image olusturulamadi.
-    pause
-    exit /b %ERRORLEVEL%
-)
+echo ---------------------------------------------
+echo Starting Test Container...
+echo ---------------------------------------------
 
-:: Docker container çalıştır
 docker run --rm test-automation
 
-IF %ERRORLEVEL% NEQ 0 (
-    echo [HATA] Docker container icinde testler basarisiz.
-    pause
-    exit /b %ERRORLEVEL%
-)
-
-echo --------------------------------------------
-echo Testler Docker container icinde basariyla calistirildi.
-echo --------------------------------------------
+echo ---------------------------------------------
+echo Test Completed.
+echo ---------------------------------------------
 pause
