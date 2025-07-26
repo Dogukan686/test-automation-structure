@@ -2,139 +2,108 @@
 
 ## 🎯 Proje Özeti
 
-Bu proje, yazılım test mühendisi adayları için hazırlanmış uçtan uca bir otomasyon test case çalışmasıdır.  
-Projede aşağıdaki yetenekler ve teknolojiler uygulanmıştır:
+Bu proje, uçtan uca test otomasyonu yetkinliklerini göstermek amacıyla hazırlanmıştır.  
+Postman, Selenium, Behave, Docker gibi araçlar kullanılarak test süreçleri tek bir yapıda birleştirilmiştir.
 
-- ✅ Selenium ile UI test otomasyonu
-- ✅ Behave (BDD) ile insan okunabilir test senaryoları
-- ✅ Postman ile API mock testi
-- ✅ API response’larını `.json` dosyasına yazma
-- ✅ Dinamik tarayıcı seçimi (Chrome / Firefox)
-- ✅ Test başarısız olursa otomatik ekran görüntüsü alma
-- ✅ HTML ve Allure ile test raporlama
-- ✅ Docker & Docker Compose desteği
-- ✅ Python scripti ile paralel test koşumu (behave_parallel klasörü)
+## 🚀 Proje Kapsamı
 
-Kurulum, çalıştırma ve detaylar aşağıda adım adım açıklanmıştır. 👇
+- Selenium ile kullanıcı arayüzü (UI) testleri
+- Behave (BDD) ile senaryo tanımlama
+- Postman mock server ile API testi
+- API response verilerinin `.json` dosyalarına yazılması
+- Hata durumunda otomatik ekran görüntüsü alma
+- Allure ve HTML ile test raporlama
+- Docker + Docker Compose ile testlerin izole çalıştırılması
+- Paralel test koşumu (behave_parallel scripti ile)
 
+---
 
-# E2E Test Automation Case Study
-
-Bu proje, Yazılım Test Mühendisi teknik değerlendirme görevinde belirtilen 8 adımı içeren uçtan uca test otomasyonu çalışmasıdır.
-
-## İçerik
-
-- ✅ UI Test Otomasyonu (Selenium)
-- ✅ API Testi (Mock Server)
-- ✅ BDD Yapısı (Behave)
-- ✅ Tarayıcı Parametrizasyonu (Chrome / Firefox)
-- ✅ Test Raporlama
-- ✅ Hata Anında Ekran Görüntüsü
-- ✅ Docker & Docker Compose
-- ✅ Paralel Test Koşumu
-
-## Gereksinimler
+## 🧱 Gereksinimler
 
 - Python 3.10+
+- pip
 - Google Chrome / Firefox
 - ChromeDriver / GeckoDriver
-- pip
+- Docker Desktop (varsayılan olarak Compose destekli)
 
-## Kurulum
+---
+
+## 🔧 Kurulum
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Test Çalıştırma
+---
 
+## 🧪 Test Çalıştırma
+
+### 1. Temel Test:
 ```bash
 behave
 ```
 
-## Docker Kullanımı
-
-```bash
-docker-compose up --build
-```
-
-## Paralel Koşum
-
-```bash
-behave-parallel -n 4
-```
-
-## İletişim
-
-Herhangi bir sorunda iletişime geçebilirsiniz.
-
-
----
-
-## Test Raporları
-
-### Behave (HTML Formatı)
+### 2. HTML Raporlu Test:
 ```bash
 behave -f html -o reports/test_report.html
 ```
 
-### Allure ile Raporlama
-1. Aşağıdaki komutla allure sonuçlarını oluştur:
+---
+
+## ⚙️ Allure ile Raporlama
+
+### 1. Allure Sonuçlarını Üret:
 ```bash
 behave -f allure_behave.formatter:AllureFormatter -o reports/allure-results
 ```
 
-2. Ardından Allure raporunu başlat:
+### 2. Raporu Görüntüle:
 ```bash
 allure serve reports/allure-results
 ```
 
-> Not: Allure CLI sistemine kurulu olmalıdır.
-
+> Not: Sisteminizde Allure CLI ve Java kurulu olmalıdır.
 
 ---
 
-## Docker Kullanımı
-
-### Build ve Test Çalıştırma
+## 🐳 Docker Üzerinden Çalıştırma
 
 ```bash
 docker-compose up --build
 ```
 
-Bu komut, otomasyon testlerini konteyner içinde başlatır.
-
+Bu komut, gerekli imajı oluşturur ve testleri konteyner içinde çalıştırır.
 
 ---
 
-## Paralel Test Koşumu
+## 🔄 Paralel Test Koşumu
 
-### Behave-Parallel ile
-
-Testleri aynı anda birden fazla çekirdekte çalıştırmak için:
-
+### 1. behave-parallel ile:
 ```bash
 behave-parallel -n 4 -f pretty
 ```
 
-- `-n 4` → 4 paralel thread kullanır
-- Test dosyalarını otomatik olarak böler ve paralel yürütür
-
-> Not: Her `.feature` dosyası ayrı thread'de yürütülür, step dosyaları ortak kullanılır.
-
-
----
-
-## Paralel Test Koşumu (behave_parallel klasörü ile yerel çözüm)
-
-`pip install behave-parallel` çalışmadığında, bu proje içinde yer alan `behave_parallel/run_parallel.py` dosyasını kullanarak paralel test çalıştırabilirsiniz.
-
-### Kullanım:
+### 2. Alternatif (run_parallel.py dosyası ile):
 ```bash
 python behave_parallel/run_parallel.py
 ```
 
-- Bu script, `features/` klasöründeki tüm `.feature` dosyalarını aynı anda çalıştırır
-- Varsayılan olarak 4 thread ile çalışır (isteğe göre arttırılabilir)
+---
+
+## 📂 Klasör Yapısı
+
+```
+.
+├── features/               # .feature dosyaları
+├── steps/                  # step tanımlamaları
+├── behave_parallel/        # run_parallel.py dosyası
+├── reports/                # HTML & Allure raporları
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── run_all_tests.bat
+```
 
 ---
+
+Bu yapı, hem teknik değerlendirmelerde hem de gerçek projelerde yeniden kullanılabilir bir test otomasyon iskeleti sunar.
