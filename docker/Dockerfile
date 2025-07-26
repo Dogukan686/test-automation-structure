@@ -1,4 +1,3 @@
-
 FROM python:3.10-slim
 
 # Gerekli paketleri yükle
@@ -13,5 +12,5 @@ RUN apt-get update && apt-get install -y openjdk-11-jre-headless && rm -rf /var/
 COPY . /app
 WORKDIR /app
 
-# Varsayılan komut: behave çalıştır
-CMD ["behave", "-f", "pretty"]
+# Varsayılan komut: behave_parallel/run_parallel.py'yi çalıştır
+CMD ["python", "behave_parallel/run_parallel.py"]

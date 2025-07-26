@@ -1,9 +1,10 @@
-
-
-
 services:
   behave-tests:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: behave_container
     volumes:
       - .:/app
-    container_name: behave_container
+    working_dir: /app
+    command: python behave_parallel/run_parallel.py
